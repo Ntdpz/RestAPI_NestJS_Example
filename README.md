@@ -1,98 +1,69 @@
-<p align="center">
-  <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="120" alt="Nest Logo" /></a>
-</p>
+การแสดงผลบน GitHub:
 
-[circleci-image]: https://img.shields.io/circleci/build/github/nestjs/nest/master?token=abc123def456
-[circleci-url]: https://circleci.com/gh/nestjs/nest
+markdown
+คัดลอก
+แก้ไข
+# 🛠️ REST API Example with NestJS
 
-  <p align="center">A progressive <a href="http://nodejs.org" target="_blank">Node.js</a> framework for building efficient and scalable server-side applications.</p>
-    <p align="center">
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/v/@nestjs/core.svg" alt="NPM Version" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/l/@nestjs/core.svg" alt="Package License" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/dm/@nestjs/common.svg" alt="NPM Downloads" /></a>
-<a href="https://circleci.com/gh/nestjs/nest" target="_blank"><img src="https://img.shields.io/circleci/build/github/nestjs/nest/master" alt="CircleCI" /></a>
-<a href="https://discord.gg/G7Qnnhy" target="_blank"><img src="https://img.shields.io/badge/discord-online-brightgreen.svg" alt="Discord"/></a>
-<a href="https://opencollective.com/nest#backer" target="_blank"><img src="https://opencollective.com/nest/backers/badge.svg" alt="Backers on Open Collective" /></a>
-<a href="https://opencollective.com/nest#sponsor" target="_blank"><img src="https://opencollective.com/nest/sponsors/badge.svg" alt="Sponsors on Open Collective" /></a>
-  <a href="https://paypal.me/kamilmysliwiec" target="_blank"><img src="https://img.shields.io/badge/Donate-PayPal-ff3f59.svg" alt="Donate us"/></a>
-    <a href="https://opencollective.com/nest#sponsor"  target="_blank"><img src="https://img.shields.io/badge/Support%20us-Open%20Collective-41B883.svg" alt="Support us"></a>
-  <a href="https://twitter.com/nestframework" target="_blank"><img src="https://img.shields.io/twitter/follow/nestframework.svg?style=social&label=Follow" alt="Follow us on Twitter"></a>
-</p>
-  <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
-  [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
+นี่คือตัวอย่างโปรเจกต์ REST API ที่พัฒนาด้วย [NestJS](https://nestjs.com/)
 
-## Description
+## 📦 เครื่องมือที่ต้องติดตั้งก่อนเริ่ม
 
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
+- [Node.js](https://nodejs.org/)
+- [Visual Studio Code (VS Code)](https://code.visualstudio.com/)
 
-## Project setup
+## 📥 Clone Repository
 
 ```bash
-$ npm install
-```
+git clone https://github.com/Ntdpz/RestAPI_NestJS_Example.git
+cd RestAPI_NestJS_Example
+▶️ เริ่มรันโปรเจกต์
+bash
+คัดลอก
+แก้ไข
+npm install
+npm run start
+🧠 อธิบายโครงสร้างและการทำงาน
+main.ts
+ไฟล์เริ่มต้นของแอป (Entry Point)
 
-## Compile and run the project
+ทำหน้าที่บูต NestJS Application
 
-```bash
-# development
-$ npm run start
+app.module.ts
+เป็น Module หลักที่รวบรวมและจัดการ Module อื่น ๆ ภายในแอป
 
-# watch mode
-$ npm run start:dev
+articles/
+โฟลเดอร์นี้คือ API หลักที่เราสร้างขึ้น โดยมี Flow การทำงานดังนี้:
 
-# production mode
-$ npm run start:prod
-```
+จำลอง Database
 
-## Run tests
+ใช้ตัวแปรแบบ array เพื่อเก็บข้อมูล บน memory (Mock Database)
 
-```bash
-# unit tests
-$ npm run test
+สร้าง DTO (Data Transfer Object)
 
-# e2e tests
-$ npm run test:e2e
+ใช้สำหรับกำหนดรูปแบบข้อมูล (Model) ที่ใช้รับ-ส่งค่าระหว่าง client กับ server
 
-# test coverage
-$ npm run test:cov
-```
+Articles Service (articles.service.ts)
 
-## Deployment
+เขียน Logic ของ API เช่น:
 
-When you're ready to deploy your NestJS application to production, there are some key steps you can take to ensure it runs as efficiently as possible. Check out the [deployment documentation](https://docs.nestjs.com/deployment) for more information.
+create()
 
-If you are looking for a cloud-based platform to deploy your NestJS application, check out [Mau](https://mau.nestjs.com), our official platform for deploying NestJS applications on AWS. Mau makes deployment straightforward and fast, requiring just a few simple steps:
+findAll()
 
-```bash
-$ npm install -g @nestjs/mau
-$ mau deploy
-```
+findOne()
 
-With Mau, you can deploy your application in just a few clicks, allowing you to focus on building features rather than managing infrastructure.
+Articles Controller (articles.controller.ts)
 
-## Resources
+กำหนดเส้นทาง (Endpoints)
 
-Check out a few resources that may come in handy when working with NestJS:
+กำหนด HTTP Methods (GET, POST ฯลฯ)
 
-- Visit the [NestJS Documentation](https://docs.nestjs.com) to learn more about the framework.
-- For questions and support, please visit our [Discord channel](https://discord.gg/G7Qnnhy).
-- To dive deeper and get more hands-on experience, check out our official video [courses](https://courses.nestjs.com/).
-- Deploy your application to AWS with the help of [NestJS Mau](https://mau.nestjs.com) in just a few clicks.
-- Visualize your application graph and interact with the NestJS application in real-time using [NestJS Devtools](https://devtools.nestjs.com).
-- Need help with your project (part-time to full-time)? Check out our official [enterprise support](https://enterprise.nestjs.com).
-- To stay in the loop and get updates, follow us on [X](https://x.com/nestframework) and [LinkedIn](https://linkedin.com/company/nestjs).
-- Looking for a job, or have a job to offer? Check out our official [Jobs board](https://jobs.nestjs.com).
+เรียกใช้ Service เพื่อนำ Logic มาทำงานตามคำขอ
 
-## Support
+ส่ง Response กลับไปยัง Client
 
-Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
+📌 สรุป
+NestJS ใช้งานง่ายและจัดระเบียบโครงสร้างชัดเจน เหมาะสำหรับการพัฒนา API ขนาดเล็กไปจนถึงใหญ่ และโค้ดนี้ก็เป็นตัวอย่างที่เข้าใจได้ง่ายสำหรับผู้เริ่มต้น
 
-## Stay in touch
-
-- Author - [Kamil Myśliwiec](https://twitter.com/kammysliwiec)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
-
-## License
-
-Nest is [MIT licensed](https://github.com/nestjs/nest/blob/master/LICENSE).
+ง่ายใช่ไหมล่ะ 😄
